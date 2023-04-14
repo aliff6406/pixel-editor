@@ -1,0 +1,27 @@
+
+.container {
+    display: flex;
+}
+
+#title {
+    margin: auto;
+    width: 500px;
+}
+#grid-container {
+    margin: auto;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.grid-row {
+    flex: 1 0 0;
+    display: flex;
+    margin: 0;
+}
+
+.grid-square {
+    flex: 1 0 auto;
+}
+
