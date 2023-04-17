@@ -14,8 +14,8 @@
     display: flex;
 }
 
-#options-bar > input {
-
+#options-bar > * {
+    flex: 1 0 auto;
 }
 
 #grid-container {

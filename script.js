@@ -1,10 +1,18 @@
 let color = 'black';
 let gridSize = 16;
+let currentMode = 'pen';
 
 const gridContainer = document.getElementById('grid-container');
+const penBtn = document.getElementById('pen-button');
+const rainbowBtw = document.getElementById('rainbow-button');
+const eraserBtn = document.getElementById('eraser-button');
 const sizeBtn = document.getElementById('size-button');
 
-sizeBtn.addEventListener('click', () => changeSize());
+penBtn.onclick = () => currentMode = 'pen';
+rainbowBtw.onclick = () => currentMode = 'rainbow';
+eraserBtn.onclick = () => currentMode = 'eraser';
+sizeBtn.onclick = () => changeSize();
+
 
 let mouseDown = false;
 document.body.onmousedown = () => mouseDown = true;
@@ -28,10 +36,21 @@ const generateGrid = () => {
 
 // Paint Square
 const paintSquare = (e) => {
-    if(e.type === 'mouseover' && mouseDown) {
-        e.target.style.cssText = `background-color: ${color}`;
-    };
-    return;
+    if(e.type === 'mouseover' && !mouseDown) return
+    switch(currentMode) {
+        case 'pen':
+            e.target.style.cssText = `background-color: ${color}`;
+            break;
+        case 'eraser':
+            e.target.style.cssText = 'background-color: white';
+            break;
+        default:
+            const randomR = Math.floor(Math.random() * 256);
+            const randomG = Math.floor(Math.random() * 256);
+            const randomB = Math.floor(Math.random() * 256);
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+            break;
+    }
 };
 
 const clearGrid = (parent) => {
