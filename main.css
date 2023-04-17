@@ -7,6 +7,17 @@
     margin: auto;
     width: 500px;
 }
+
+#options-bar {
+    margin: auto;
+    width: 500px;
+    display: flex;
+}
+
+#options-bar > input {
+
+}
+
 #grid-container {
     margin: auto;
     flex-direction: column;
